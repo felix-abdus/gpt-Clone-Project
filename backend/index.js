@@ -14,7 +14,6 @@ app.use(cors());
 
 app.use("/api", mainRouter);
 
-
 //error middleware
 app.use(errorHandler)
 
@@ -37,5 +36,4 @@ async function startServer(){
        console.log("Error starting server:", error.message||error) 
     }
 }
-
 startServer()
