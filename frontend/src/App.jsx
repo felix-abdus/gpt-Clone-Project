@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+// import "dotenv";
 import Sidebar from './components/Sidebar/Sidebar';
 import ChatHeader from './components/ChatHeader/ChatHeader';
 import MessageList from './components/MessageList/MessageList';
 import ChatInput from './components/ChatInput/ChatInput';
 import './App.css';
 
-const API_BASE_URL = 'http://localhost:3777/api';
+// const API_BASE_URL = 'http://localhost:3777/api';
 
 function App() {
   const [conversations, setConversations] = useState([]);
@@ -27,7 +28,7 @@ function App() {
 
   const fetchConversations = async () => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/chat/conversations`);
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/chat/conversations`);
       if (response.data.success) {
         setConversations(response.data.data.conversations);
       }
@@ -47,7 +48,7 @@ function App() {
     setIsLoading(true);
 
     try {
-      const response = await axios.post(`${API_BASE_URL}/chat/conversations`, {
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/chat/conversations`, {
         question,
       });
       if (response.data.success) {

@@ -10,12 +10,13 @@ const db = mysql2.createPool({
   password: process.env.DB_PASSWORD || "EP6265076@jan02",
   database: process.env.DB_DATABASE || "gpt-clone",
   port: process.env.DB_PORT || 3444,
-  ssl:{
-    ca: fs.readFileSync(process.env.CA)
-  }
+//   ssl:{
+//     ca: fs.readFileSync(process.env.CA)
+//   }
 
 
 });
+console.log("table  ", {database: process.env.DB_DATABASE})
 
 
 // console.log(
